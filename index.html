@@ -12,10 +12,39 @@
       scroll-behavior: smooth;
     }
   </style>
-    <style>
+  <style>
     /* Ajustement du fond pour mobile */
     body {
       scroll-behavior: smooth;
+    }
+
+    /* Menu vertical : réduire sa largeur sur petits écrans */
+    @media (max-width: 768px) {
+      aside {
+        width: 60px !important;
+        padding-top: 6rem;
+      }
+      aside span {
+        display: none; /* Masquer le texte sur mobile */
+      }
+      main {
+        margin-right: 60px !important;
+        padding: 1rem !important;
+      }
+    }
+
+    /* Ajustements images et sections pour petits écrans */
+    @media (max-width: 480px) {
+      section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
+      }
+      img {
+        max-width: 100% !important;
+        height: auto !important;
+      }
     }
   </style>
 </head>
