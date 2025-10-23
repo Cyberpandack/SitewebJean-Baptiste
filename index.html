@@ -7,25 +7,27 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/feather-icons"></script>
   <script src="Sitewebjb.js"></script>
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
   <style>
     html {
       scroll-behavior: smooth;
     }
   </style>
   <style>
-    /* Ajustement du fond pour mobile */
+
     body {
       scroll-behavior: smooth;
     }
 
-    /* Menu vertical : réduire sa largeur sur petits écrans */
     @media (max-width: 768px) {
       aside {
         width: 60px !important;
         padding-top: 6rem;
       }
       aside span {
-        display: none; /* Masquer le texte sur mobile */
+        display: none;
       }
       main {
         margin-right: 60px !important;
@@ -33,7 +35,6 @@
       }
     }
 
-    /* Ajustements images et sections pour petits écrans */
     @media (max-width: 480px) {
       section {
         padding-left: 1rem !important;
@@ -50,7 +51,6 @@
 </head>
 <body class="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 font-sans text-gray-100">
 
-  <!-- MENU VERTICAL FLOTTANT À DROITE -->
   <aside class="fixed top-0 right-0 h-full w-20 md:w-28 bg-gray-900/70 backdrop-blur-md shadow-xl flex flex-col items-center py-10 space-y-8 z-50">
     <a href="#accueil" class="flex flex-col items-center text-gray-100 hover:text-cyan-400 transition-all duration-300 group">
       <i data-feather="home" class="w-6 h-6 mb-1 group-hover:scale-125"></i>
@@ -78,10 +78,8 @@
     </a>
   </aside>
 
-  <!-- CONTENU PRINCIPAL -->
   <main class="mr-20 md:mr-28 px-6">
 
-    <!-- SECTION ACCUEIL -->
     <section id="accueil" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center">
       <div class="mx-auto w-44 md:w-56 relative mb-12">
         <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 blur-xl opacity-50 animate-pulse"></div>
@@ -100,7 +98,6 @@
       </div>
     </section>
 
-    <!-- SECTION À PROPOS -->
     <section id="apropos" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center">
       <h2 class="text-3xl md:text-5xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
         À propos de moi
@@ -113,7 +110,6 @@
       </div>
     </section>
 
-    <!-- SECTION FORMATIONS -->
     <section id="formations" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center">
       <h2 class="text-3xl md:text-5xl font-extrabold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
         Mes Formations
@@ -127,19 +123,17 @@
             <ul class="list-disc list-inside text-gray-100 ml-6">
               <li>Pre MSc - Master (bac +5) en informatique</li>
               <li>Piscine Python : initiation à la programmation, algorithmes, scripting</li>
-              <li>Piscine HTML & CSS : création d’un site web responsive</li>
+              <li>Piscine HTML & CSS : création d'un site web responsive</li>
               <li>Spécialisation Cybersécurité en dernière année</li>
             </ul>
           </li>
-          <li><strong>Master RH (Bac+4) – 2024 à 2025</strong></li>
+          <li><strong>Master RH (Bac+4) - 2024 à 2025</strong></li>
           <li><strong>Bachelor Marketing et développement des ventes - 2023 à 2024</strong></li>
           <li><strong>BTS NDRC - 2021 à 2023</strong></li>
           <li><strong>Baccalauréat STMG - 2021</strong></li>
         </ul>
       </div>
     </section>
-
-    <!-- SECTION EXPÉRIENCES -->
     <section id="experiences" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center">
       <h2 class="text-3xl md:text-5xl font-extrabold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
         Mes Expériences Professionnelles
@@ -149,15 +143,15 @@
         <h3 class="text-xl font-bold mb-6 text-cyan-300">Expériences professionnelles</h3>
         <ul class="list-disc list-inside space-y-4 text-gray-100">
           <li>
-            <strong>Alternant Support outils RH - Adsearch</strong> (Nov 2024 – Sept 2025)
+            <strong>Alternant Support outils RH - Adsearch</strong> (Nov 2024 - Sept 2025)
             <ul class="list-disc list-inside ml-5 mt-2">
-              <li>Optimisation technique de l’ATS.</li>
+              <li>Optimisation technique de l'ATS.</li>
               <li>Gestion des comptes utilisateurs et accès outils RH.</li>
               <li>Formation et assistance des équipes opérationnelles.</li>
             </ul>
           </li>
           <li>
-            <strong>Alternant Responsable Web Marketing - Ikosoft</strong> (Nov 2023 – Sept 2024)
+            <strong>Alternant Responsable Web Marketing - Ikosoft</strong> (Nov 2023 - Sept 2024)
             <ul class="list-disc list-inside ml-5 mt-2">
               <li>Recueil des besoins fonctionnels et optimisation des outils digitaux.</li>
               <li>Paramétrage et automatisation en lien avec les développeurs.</li>
@@ -165,7 +159,7 @@
             </ul>
           </li>
           <li>
-            <strong>Alternant commercial - Serenity</strong> (Sept 2023 – Nov 2023)
+            <strong>Alternant commercial - sSerenity</strong> (Sept 2023 - Nov 2023)
             <ul class="list-disc list-inside ml-5 mt-2">
               <li>Stratégies de prospection et suivi des leads via CRM.</li>
               <li>Automatisation des campagnes e-mailing et génération de devis.</li>
@@ -176,7 +170,6 @@
       </div>
     </section>
 
-    <!-- SECTION COMPÉTENCES -->
     <section id="competences" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center">
       <h2 class="text-3xl md:text-5xl font-extrabold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
         Mes Compétences
@@ -185,26 +178,29 @@
       <div class="max-w-3xl mx-auto bg-gray-800/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-600 text-center">
         <h3 class="text-xl font-bold mb-6 text-cyan-300">Compétences techniques et soft skills</h3>
         <div class="flex flex-wrap justify-center gap-4 mb-6">
-          <!-- Badges avec logos -->
-          <div class="flex items-center bg-gray-900 rounded-xl px-3 py-2 shadow-md">
+            <div class="flex items-center bg-gray-900 rounded-xl px-3 py-2 shadow-md">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-6 h-6 mr-2">
             <span class="text-white font-semibold">Python</span>
           </div>
-          <div class="flex items-center bg-gray-900 rounded-xl px-3 py-2 shadow-md">
+           <div class="flex items-center bg-gray-900 rounded-xl px-3 py-2 shadow-md">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" class="w-6 h-6 mr-2">
             <span class="text-white font-semibold">Bash</span>
           </div>
           <div class="flex items-center bg-gray-900 rounded-xl px-3 py-2 shadow-md">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-6 h-6 mr-2">
-            <span class="text-white font-semibold">Java</span>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" class="w-6 h-6 mr-2">
+            <span class="text-white font-semibold">Linux</span>
           </div>
           <div class="flex items-center bg-gray-900 rounded-xl px-3 py-2 shadow-md">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="w-6 h-6 mr-2">
             <span class="text-white font-semibold">HTML/CSS</span>
           </div>
           <div class="flex items-center bg-gray-900 rounded-xl px-3 py-2 shadow-md">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" class="w-6 h-6 mr-2">
-            <span class="text-white font-semibold">WSL / Linux</span>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="javascript" class="w6 h-6 mr-2">
+            <span class="text-white font-semibold">javascript</span>
+          </div>
+          <div class="flex items-center bg-gray-900 rounded-xl px-3 py-2 shadow-md">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-6 h-6 mr-2">
+            <span class="text-white font-semibold">java</span>
           </div>
           <div class="flex items-center bg-gray-900 rounded-xl px-3 py-2 shadow-md">
             <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Travail en équipe" class="w-6 h-6 mr-2">
@@ -230,7 +226,6 @@
       </div>
     </section>
 
-    <!-- SECTION CONTACT -->
     <section id="contact" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center">
       <h2 class="text-3xl md:text-5xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
         Me contacter
@@ -252,8 +247,61 @@
         </a>
       </div>
     </section>
+    
+  <section>
+    <div class="max-w-sm mx-auto bg-gray-700/30 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-gray-600 space-y-1 text-lg text-cyan-100">
+    <div class="flex flex-col">
+      <label for="nom" class="mb-1 font-semibold">Nom</label>
+      <input type="text" id="nom" name="nom" required
+             class="p-2 rounded-lg bg-gray-900 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-gray-100">
+    </div>
 
-  </main>
+
+      <div class="flex flex-col">
+        <label for="prenom" class="mb-1 font-semibold">Prénom</label>
+        <input type="text" id="prenom" name="prenom" required
+               class="p-2 rounded-lg bg-gray-900 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-gray-100">
+      </div>
+
+      <div class="flex flex-col">
+        <label for="email" class="mb-1 font-semibold">Email</label>
+        <input type="email" id="email" name="email" required
+              class="p-2 rounded-lg bg-gray-900 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-gray-100">
+      </div>
+
+
+      <div class="flex flex-col">
+        <label for="entreprise" class="mb-1 font-semibold">Entreprise</label>
+        <input type="text" id="entreprise" name="entreprise"
+               class="p-2 rounded-lg bg-gray-900 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-gray-100">
+      </div>
+
+      <div class="flex flex-col">
+        <label for="poste" class="mb-1 font-semibold">Poste</label>
+        <input type="text" id="poste" name="poste"
+               class="p-2 rounded-lg bg-gray-900 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-gray-100">
+      </div>
+
+      <div class="flex flex-col">
+        <label for="objet" class="mb-1 font-semibold">Objet</label>
+        <input type="text" id="objet" name="objet" required
+               class="p-2 rounded-lg bg-gray-900 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-gray-100">
+      </div>
+
+      <div class="flex flex-col">
+        <label for="message" class="mb-1 font-semibold">Message</label>
+        <textarea id="message" name="message" required rows="4"
+        spellcheck="false" autocomplete="off" autocorrect="off"
+                class="p-2 rounded-lg bg-gray-900 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-gray-100"></textarea>
+      </div>
+
+      <button type="submit"
+              class="w-full bg-cyan-500 hover:bg-cyan-400 text-gray-900 font-bold py-3 px-6 rounded-xl shadow-lg transition transform hover:scale-105">
+        Envoyer
+      </button>
+  </section>
+  
+</main>
 
   <script>
     feather.replace();
