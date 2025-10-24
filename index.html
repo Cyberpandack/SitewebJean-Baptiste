@@ -7,20 +7,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/feather-icons"></script>
   <script src="Sitewebjb.js"></script>
-  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
 
   <style>
     html {
       scroll-behavior: smooth;
     }
-  </style>
-  <style>
-
     body {
       scroll-behavior: smooth;
     }
-
     @media (max-width: 768px) {
       aside {
         width: 60px !important;
@@ -34,7 +28,6 @@
         padding: 1rem !important;
       }
     }
-
     @media (max-width: 480px) {
       section {
         padding-left: 1rem !important;
@@ -49,7 +42,8 @@
     }
   </style>
 </head>
-<body class="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 font-sans text-gray-100">
+<body class="bg-gray-900 font-sans text-gray-100">
+
 
   <aside class="fixed top-0 right-0 h-full w-20 md:w-28 bg-gray-900/70 backdrop-blur-md shadow-xl flex flex-col items-center py-10 space-y-8 z-50">
     <a href="#accueil" class="flex flex-col items-center text-gray-100 hover:text-cyan-400 transition-all duration-300 group">
@@ -83,13 +77,47 @@
   </aside>
 
   <main class="mr-20 md:mr-28 px-6">
+  <section id="accueil" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center bg-transparent">
+    <div class="mx-auto w-44 md:w-56 relative mb-12">
+      
+      <!-- Cercle animé style éclairs -->
+      <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 opacity-60 animate-lightning"></div>
+      
+      <!-- Cercle de contour -->
+      <div class="absolute -inset-2 rounded-full border-2 border-cyan-400/50"></div>
+      
+      <!-- Image -->
+      <img src="moi.jpg" alt="Photo de Jean-Baptiste" class="relative w-full h-full object-cover rounded-full shadow-2xl">
+    </div>
 
-    <section id="accueil" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center">
-      <div class="mx-auto w-44 md:w-56 relative mb-12">
-        <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 blur-xl opacity-50 animate-pulse"></div>
-        <div class="absolute -inset-2 rounded-full border-2 border-cyan-400/50"></div>
-        <img src="moi.jpg" alt="Photo de Jean-Baptiste" class="relative w-full h-full object-cover rounded-full shadow-2xl">
-      </div>
+<style>
+@keyframes lightning {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.6;
+    filter: blur(15px);
+  }
+  25% {
+    transform: scale(1.05) rotate(5deg);
+    opacity: 0.8;
+    filter: blur(10px);
+  }
+  50% {
+    transform: scale(0.95) rotate(-5deg);
+    opacity: 0.7;
+    filter: blur(12px);
+  }
+  75% {
+    transform: scale(1.03) rotate(3deg);
+    opacity: 0.9;
+    filter: blur(8px);
+  }
+}
+
+.animate-lightning {
+  animation: lightning 2s infinite ease-in-out;
+}
+</style>
 
       <h2 class="text-3xl md:text-5xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
         Bonjour ! Moi c'est Jean-Baptiste
@@ -102,23 +130,81 @@
       </div>
     </section>
 
-    <section id="apropos" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center">
+    <section id="apropos" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center bg-transparent">
       <h2 class="text-3xl md:text-5xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
         À propos de moi
       </h2>
-
       <div class="max-w-3xl mx-auto space-y-10">
         <div class="bg-gray-800/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-600">
           <p id="apropos-text" class="text-lg md:text-xl leading-relaxed text-cyan-300"></p>
         </div>
       </div>
     </section>
+<section class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center bg-transparent">
+  <h3 class="text-2xl md:text-3xl font-semibold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 text-center">
+    Mes passions
+  </h3>
 
-    <section id="formations" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center">
+  <div class="relative w-full max-w-xl">
+    <div class="w-full h-64 md:h-96 rounded-lg shadow-lg overflow-hidden relative bg-transparent">
+      <img id="carousel-image" src="stvictoire.jpg.jpg" alt="Carrousel de mes passions" class="w-full h-full object-contain transition-opacity duration-500 opacity-100 relative z-10">
+    </div>
+
+    <div id="carousel-caption" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black bg-opacity-50 px-4 py-2 rounded-md text-center z-20 opacity-100 transition-opacity duration-500">
+      La majestueuse Montagne Sainte-Victoire
+    </div>
+
+    <button id="prev" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-3 py-2 rounded-full shadow hover:bg-opacity-75 transition z-20">‹</button>
+    <button id="next" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-3 py-2 rounded-full shadow hover:bg-opacity-75 transition z-20">›</button>
+  </div>
+</section>
+
+<script>
+const images = [
+  { 
+    src: "stvictoire.jpg.jpg", 
+    caption: "La Sainte-Victoire que je grimpe presque tous les weekends"
+  },
+  { 
+    src: "ajaccio.jpg.jpg", 
+    caption: "Ajaccio, ma ville de coeur !"
+  },
+  { 
+    src: "sun.jpeg", 
+    caption: "Sanguinaire, coucher de soleil en corse du Sud"
+  }
+];
+
+let currentIndex = 0;
+
+const carouselImage = document.getElementById("carousel-image");
+const caption = document.getElementById("carousel-caption");
+const prevButton = document.getElementById("prev");
+const nextButton = document.getElementById("next");
+
+function showImage(index) {
+  currentIndex = (index + images.length) % images.length;
+
+  carouselImage.style.opacity = 0;
+  caption.style.opacity = 0;
+
+  setTimeout(() => {
+    carouselImage.src = images[currentIndex].src;
+    caption.textContent = images[currentIndex].caption;
+    carouselImage.style.opacity = 1;
+    caption.style.opacity = 1;
+  }, 300);
+}
+
+prevButton.addEventListener("click", () => showImage(currentIndex - 1));
+nextButton.addEventListener("click", () => showImage(currentIndex + 1));
+
+window.addEventListener("load", () => showImage(currentIndex));
+</script>
+    <section id="formations" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center bg-transparent">
       <h2 class="text-3xl md:text-5xl font-extrabold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
         Mes Formations
       </h2>
-
       <div class="relative bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-600 text-left p-8 max-w-3xl mx-auto">
         <h3 class="text-xl font-bold mb-6 text-cyan-300">Formations & parcours académique</h3>
         <ul class="list-disc list-inside space-y-4 text-gray-100">
@@ -138,11 +224,11 @@
         </ul>
       </div>
     </section>
-    <section id="experiences" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center">
+
+    <section id="experiences" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center bg-transparent">
       <h2 class="text-3xl md:text-5xl font-extrabold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
         Mes Expériences Professionnelles
       </h2>
-
       <div class="max-w-3xl mx-auto bg-gray-800/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-600 text-left">
         <h3 class="text-xl font-bold mb-6 text-cyan-300">Expériences professionnelles</h3>
         <ul class="list-disc list-inside space-y-4 text-gray-100">
@@ -174,19 +260,18 @@
       </div>
     </section>
 
-    <section id="competences" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center">
+    <section id="competences" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center bg-transparent">
       <h2 class="text-3xl md:text-5xl font-extrabold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
         Mes Compétences
       </h2>
-
       <div class="max-w-3xl mx-auto bg-gray-800/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-600 text-center">
         <h3 class="text-xl font-bold mb-6 text-cyan-300">Compétences techniques et soft skills</h3>
         <div class="flex flex-wrap justify-center gap-4 mb-6">
-            <div class="flex items-center bg-gray-900 rounded-xl px-3 py-2 shadow-md">
+          <div class="flex items-center bg-gray-900 rounded-xl px-3 py-2 shadow-md">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-6 h-6 mr-2">
             <span class="text-white font-semibold">Python</span>
           </div>
-           <div class="flex items-center bg-gray-900 rounded-xl px-3 py-2 shadow-md">
+          <div class="flex items-center bg-gray-900 rounded-xl px-3 py-2 shadow-md">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" class="w-6 h-6 mr-2">
             <span class="text-white font-semibold">Bash</span>
           </div>
@@ -199,13 +284,17 @@
             <span class="text-white font-semibold">HTML/CSS</span>
           </div>
           <div class="flex items-center bg-gray-900 rounded-xl px-3 py-2 shadow-md">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="javascript" class="w6 h-6 mr-2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="javascript" class="w-6 h-6 mr-2">
             <span class="text-white font-semibold">javascript</span>
           </div>
           <div class="flex items-center bg-gray-900 rounded-xl px-3 py-2 shadow-md">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-6 h-6 mr-2">
-            <span class="text-white font-semibold">java</span>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" 
+          alt="Java" 
+          class="w-6 h-6 mr-2">
+          <span class="text-white font-semibold">java</span>
           </div>
+
+
           <div class="flex items-center bg-gray-900 rounded-xl px-3 py-2 shadow-md">
             <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Travail en équipe" class="w-6 h-6 mr-2">
             <span class="text-white font-semibold">Travail en équipe</span>
@@ -219,54 +308,82 @@
             <span class="text-white font-semibold">Analyse et résolution de problèmes</span>
           </div>
           <div class="flex items-center bg-gray-900 rounded-xl px-3 py-2 shadow-md">
-            <img src="https://cdn-icons-png.flaticon.com/512/2910/2910767.png" alt="Adaptabilité" class="w-6 h-6 mr-2 filter invert">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135719.png" 
+            alt="Adaptabilité" 
+            class="w-6 h-6 mr-2 filter invert brightness-200">
             <span class="text-white font-semibold">Adaptabilité</span>
           </div>
-        </div>
 
+
+
+
+        </div>
         <p class="text-cyan-300 text-lg">
           Mon GitHub : <a href="https://github.com/Cyberpandack" target="_blank" class="text-cyan-400 hover:underline">Cyberpandack</a>
         </p>
       </div>
     </section>
-
-
-<section id="mesprojets" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center">
+    <section id="mesprojets" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center bg-transparent">
   <h2 class="text-3xl md:text-5xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
     Mes Projets
   </h2>
 
   <div class="relative w-full max-w-xl">
-    <img id="carousel-image" src="Platino.offres.png" alt="Projet 1" class="w-full h-64 object-cover rounded-lg shadow-lg transition-all duration-500">
-    <button id="prev" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white/70 text-black px-3 py-1 rounded-full shadow">‹</button>
-    <button id="next" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white/70 text-black px-3 py-1 rounded-full shadow">›</button>
+    <!-- Wrapper pour les images -->
+    <div class="w-full h-64 md:h-96 rounded-lg shadow-lg overflow-hidden relative bg-transparent">
+      <img id="carousel-image-1" src="platino.offres.png" alt="Projet 1" class="w-full h-full object-contain transition-opacity duration-500 opacity-100 relative z-10">
+    </div>
+
+    <!-- Légende dynamique -->
+    <div id="carousel-caption-1" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black bg-opacity-50 px-4 py-2 rounded-md text-center z-20 opacity-100 transition-opacity duration-500">
+      Premier aperçu du projet Platino
+    </div>
+
+    <!-- Flèches -->
+    <button id="prev-1" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-3 py-2 rounded-full shadow hover:bg-opacity-75 transition z-20">‹</button>
+    <button id="next-1" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-3 py-2 rounded-full shadow hover:bg-opacity-75 transition z-20">›</button>
   </div>
- <p class="mt-6 max-w-lg text-gray-300 text-sm md:text-base">
-    Projet réalisé à <span class="font-semibold text-cyan-400">Epitech</span> dans le cadre d'un travail de conception d'un
-    <span class="font-semibold">jobboard innovant destiné à la génération Z</span>.  
-    L'objectif était de créer une platerforme qui correspondé à un profil de la génération Z, voici un exemple de la page offre et Accueil.
-  </p>
+
+<p class="mt-6 max-w-lg text-gray-300 text-sm md:text-base">
+  Projet réalisé à <span class="font-semibold text-cyan-400">Epitech</span> dans le cadre d'un projet de groupe, où nous devions concevoir un jobboard innovant. L'objectif était de développer une plateforme <span class="font-semibold">moderne, intuitive et responsive</span>.
+</p>
+
 </section>
 
 <script>
-  const images = ["Platino.offres.png", "Platino.accueil.png"];
-  let currentIndex = 0;
+const images1 = [
+  { src: "platino.offres.png", caption: "Page d'offres de Platino" },
+  { src: "platino.accueil.png", caption: "Page d'accueil du jobboard" }
+];
 
-  const carouselImage = document.getElementById("carousel-image");
-  const prevBtn = document.getElementById("prev");
-  const nextBtn = document.getElementById("next");
+let currentIndex1 = 0;
+const carouselImage1 = document.getElementById("carousel-image-1");
+const caption1 = document.getElementById("carousel-caption-1");
+const prevButton1 = document.getElementById("prev-1");
+const nextButton1 = document.getElementById("next-1");
 
-  prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    carouselImage.src = images[currentIndex];
-  });
+function showImage1(index) {
+  currentIndex1 = (index + images1.length) % images1.length;
 
-  nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % images.length;
-    carouselImage.src = images[currentIndex];
-  });
+  // Fade out image et texte
+  carouselImage1.style.opacity = 0;
+  caption1.style.opacity = 0;
+
+  setTimeout(() => {
+    carouselImage1.src = images1[currentIndex1].src;
+    caption1.textContent = images1[currentIndex1].caption;
+
+    // Fade in
+    carouselImage1.style.opacity = 1;
+    caption1.style.opacity = 1;
+  }, 300);
+}
+
+prevButton1.addEventListener("click", () => showImage1(currentIndex1 - 1));
+nextButton1.addEventListener("click", () => showImage1(currentIndex1 + 1));
+
+window.addEventListener("load", () => showImage1(currentIndex1));
 </script>
-</body>
 
 
     <section id="contact" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center">
@@ -291,53 +408,42 @@
       </div>
     </section>
     
-<h2 class="text-2xl md:text-3xl font-extrabold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
+<h2 class="text-2xl md:text-3xl font-semibold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 text-center">
   M'envoyer un message
 </h2>
 
+
 <section>
   <form id="contact-form" action="https://formspree.io/f/xjkaqqnb" method="POST"
-        class="max-w-sm mx-auto bg-gray-700/30 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-gray-600 space-y-4 text-lg text-cyan-100">
+        class="max-w-md mx-auto bg-gray-800/40 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-600 space-y-4 text-gray-100">
 
     <div class="flex flex-col">
       <label for="nom" class="mb-1 font-semibold">Nom</label>
-      <input type="text" id="nom" name="nom" required
+      <input type="text" id="nom" name="nom" required placeholder="Jean"
              class="p-2 rounded-lg bg-gray-900 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-gray-100">
     </div>
 
     <div class="flex flex-col">
       <label for="prenom" class="mb-1 font-semibold">Prénom</label>
-      <input type="text" id="prenom" name="prenom" required
+      <input type="text" id="prenom" name="prenom" required placeholder="Dupont"
              class="p-2 rounded-lg bg-gray-900 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-gray-100">
     </div>
 
     <div class="flex flex-col">
       <label for="email" class="mb-1 font-semibold">Email</label>
-      <input type="email" id="email" name="email" required
-             class="p-2 rounded-lg bg-gray-900 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-gray-100">
-    </div>
-
-    <div class="flex flex-col">
-      <label for="entreprise" class="mb-1 font-semibold">Entreprise</label>
-      <input type="text" id="entreprise" name="entreprise"
-             class="p-2 rounded-lg bg-gray-900 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-gray-100">
-    </div>
-
-    <div class="flex flex-col">
-      <label for="poste" class="mb-1 font-semibold">Poste</label>
-      <input type="text" id="poste" name="poste"
+      <input type="email" id="email" name="email" required placeholder="jean.dupont@email.com"
              class="p-2 rounded-lg bg-gray-900 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-gray-100">
     </div>
 
     <div class="flex flex-col">
       <label for="objet" class="mb-1 font-semibold">Objet</label>
-      <input type="text" id="objet" name="objet" required
+      <input type="text" id="objet" name="objet" required placeholder="Sujet de votre message"
              class="p-2 rounded-lg bg-gray-900 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-gray-100">
     </div>
 
     <div class="flex flex-col">
       <label for="message" class="mb-1 font-semibold">Message</label>
-      <textarea id="message" name="message" required rows="4"
+      <textarea id="message" name="message" required rows="4" placeholder="Écrivez votre message ici..."
         spellcheck="false" autocomplete="off" autocorrect="off"
         class="p-2 rounded-lg bg-gray-900 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-gray-100"></textarea>
     </div>
@@ -367,7 +473,7 @@
 
     if (response.ok) {
       status.textContent = "Merci, ton message a bien été envoyé !";
-      status.className = "text-black-400 text-center mt-2 font-semibold";
+      status.className = "text-green-400 text-center mt-2 font-semibold";
       form.reset();
     } else {
       status.textContent = "Une erreur est survenue. Réessaie plus tard.";
@@ -380,6 +486,5 @@
   <script>
     feather.replace();
   </script>
-
 </body>
 </html>

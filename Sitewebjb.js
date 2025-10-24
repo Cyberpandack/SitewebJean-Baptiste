@@ -1,33 +1,29 @@
 window.addEventListener('DOMContentLoaded', () => {
   feather.replace();
 
-  const text = "J'ai 25 ans et je recherche une alternance à partir de janvier 2026. Après un parcours en ressources humaines et une expérience en recrutement, j'ai choisi de me réorienter vers l'informatique. Ce domaine me passionne parce qu'il me permet de créer, résoudre des problèmes et progresser en permanence. Mon objectif est de construire ma carrière dans l'IT en alliant mon expérience humaine en RH à mes nouvelles compétences techniques acquises chez Epitech.";
-  const element = document.getElementById("formation1");
-
-  let i = 0;
-  function typeWriter() {
-    if (i < text.length) {
-      element.textContent += text.charAt(i);
-      i++;
-      setTimeout(typeWriter, 25);
+  const texts = [
+    {
+      elementId: "formation1",
+      text: "J'ai 25 ans et je recherche une alternance dès janvier 2026. Après une expérience en ressources humaines et en recrutement, je me réoriente vers l'informatique, un domaine qui me passionne pour sa créativité, ses défis et ses possibilités d'évolution. Mon objectif : construire ma carrière dans l'IT en combinant mon expérience RH à mes nouvelles compétences techniques acquises chez Epitech."
+    },
+    {
+      elementId: "apropos-text",
+      text: "Après un bachelor en marketing et une expérience en outils RH, j'ai découvert ma passion pour le code et la résolution de problèmes concrets. Dans mon précédent rôle, j'ai participé à l'optimisation technique de l'ATS en lien avec les équipes IT, géré les comptes utilisateurs et accès aux outils RH, et assuré la formation et le suivi des usages numériques auprès des équipes opérationnelles. Aujourd'hui, je souhaite combiner ces compétences humaines et techniques avec mon expertise acquise chez Epitech pour contribuer à des projets innovants dans l'IT. Passionné par le monde tech, je consacre mon temps libre à la lecture de blogs technologiques, à la veille informatique, au codage et à l'expérimentation de projets personnels comme des scripts ou de petits jeux vidéo. J'aime aussi le gaming, l'e-sport, le cinéma et les randonnées, qui nourrissent ma curiosité et ma créativité au quotidien."
     }
-  }
-  typeWriter();
-});
+  ];
 
-window.addEventListener('DOMContentLoaded', () => {
-  const textApropos = "J'ai 25 ans et je me prépare à construire ma carrière dans l'IT. Après un bachelor en marketing et une alternance chez Ikosoft, j'ai eu l'opportunité de collaborer étroitement avec des développeurs. Cette expérience a été un véritable déclic : j'ai découvert un univers où je pouvais créer, analyser et résoudre des problèmes concrets grâce au code. Fort de mon parcours en ressources humaines et en recrutement, j'ai développé des compétences en communication, en accompagnement et en gestion de profils variés, que je souhaite désormais mettre au service de projets techniques. Aujourd'hui, mon objectif est clair : bâtir une carrière dans l'informatique, en combinant mes compétences humaines avec une expertise technique approfondie, acquise à travers ma formation et mes projets personnels. Passionné par le monde tech, je consacre également mon temps libre à la lecture de blogs technologiques, la veille informatique, le codage et l'expérimentation de projets personnels (scripts, petits jeux vidéo). J'apprécie aussi le gaming et l'e-sport, le cinéma et les randonnées, qui me permettent de rester curieux et créatif dans tous les aspects de ma vie.";
-  
-  const elementApropos = document.getElementById("apropos-text");
-  let j = 0;
+  texts.forEach(({ elementId, text }) => {
+    const element = document.getElementById(elementId);
+    let i = 0;
 
-  function typeWriterApropos() {
-    if (j < textApropos.length) {
-      elementApropos.textContent += textApropos.charAt(j);
-      j++;
-      setTimeout(typeWriterApropos, 25);
+    function typeWriter() {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+      }
     }
-  }
 
-  typeWriterApropos();
+    typeWriter();
+  });
 });
