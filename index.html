@@ -80,13 +80,10 @@
   <section id="accueil" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center bg-transparent">
     <div class="mx-auto w-44 md:w-56 relative mb-12">
       
-      <!-- Cercle animé style éclairs -->
       <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 opacity-60 animate-lightning"></div>
       
-      <!-- Cercle de contour -->
       <div class="absolute -inset-2 rounded-full border-2 border-cyan-400/50"></div>
       
-      <!-- Image -->
       <img src="moi.jpg" alt="Photo de Jean-Baptiste" class="relative w-full h-full object-cover rounded-full shadow-2xl">
     </div>
 
@@ -163,7 +160,7 @@
 const images = [
   { 
     src: "stvictoire.jpg.jpg", 
-    caption: "La Sainte-Victoire que je grimpe presque tous les weekends"
+    caption: "La Sainte-Victoire, que j’ai déjà grimpée sur toutes ses faces."
   },
   { 
     src: "ajaccio.jpg.jpg", 
@@ -323,68 +320,82 @@ window.addEventListener("load", () => showImage(currentIndex));
         </p>
       </div>
     </section>
-    <section id="mesprojets" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center bg-transparent">
+
+  <section id="mesprojets" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center bg-transparent">
   <h2 class="text-3xl md:text-5xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
     Mes Projets
   </h2>
 
-  <div class="relative w-full max-w-xl">
-    <!-- Wrapper pour les images -->
+  <div class="relative w-full max-w-xl mx-auto">
     <div class="w-full h-64 md:h-96 rounded-lg shadow-lg overflow-hidden relative bg-transparent">
-      <img id="carousel-image-1" src="platino.offres.png" alt="Projet 1" class="w-full h-full object-contain transition-opacity duration-500 opacity-100 relative z-10">
+      <img id="carousel2-image"
+           src="platino.offres.png"
+           alt="Carrousel secondaire"
+           class="w-full h-full object-contain transition-opacity duration-500 opacity-100 relative z-10">
+    </div>
+    <div id="carousel2-caption"
+         class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black bg-opacity-50 px-4 py-2 rounded-md text-center z-20 opacity-100 transition-opacity duration-500">
+      Premier aperçu du projet Platino.
     </div>
 
-    <!-- Légende dynamique -->
-    <div id="carousel-caption-1" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black bg-opacity-50 px-4 py-2 rounded-md text-center z-20 opacity-100 transition-opacity duration-500">
-      Premier aperçu du projet Platino
-    </div>
-
-    <!-- Flèches -->
-    <button id="prev-1" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-3 py-2 rounded-full shadow hover:bg-opacity-75 transition z-20">‹</button>
-    <button id="next-1" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-3 py-2 rounded-full shadow hover:bg-opacity-75 transition z-20">›</button>
+    <button id="prev2"
+            class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-3 py-2 rounded-full shadow hover:bg-opacity-75 transition z-20"
+            aria-label="Image précédente">‹</button>
+    <button id="next2"
+            class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-3 py-2 rounded-full shadow hover:bg-opacity-75 transition z-20"
+            aria-label="Image suivante">›</button>
   </div>
 
-<p class="mt-6 max-w-lg text-gray-300 text-sm md:text-base">
-  Projet réalisé à <span class="font-semibold text-cyan-400">Epitech</span> dans le cadre d'un projet de groupe, où nous devions concevoir un jobboard innovant. L'objectif était de développer une plateforme <span class="font-semibold">moderne, intuitive et responsive</span>.
-</p>
+  <p class="mt-6 max-w-lg text-gray-300 text-sm md:text-base">
+    Projet réalisé à <span class="font-semibold text-cyan-400">Epitech</span> dans le cadre d’un projet de groupe, où nous devions concevoir un jobboard innovant.
+    L’objectif était de développer une plateforme <span class="font-semibold">moderne, intuitive et responsive</span>.
+  </p>
 
+  <script>
+    const images2 = [
+      {
+        src: "platino.offres.png",
+        caption: "Premier aperçu de la page des offres."
+      },
+      {
+        src: "platino.accueil.png",
+        caption: "Page d’accueil du jobboard Platino."
+      },
+    ];
+
+    let currentIndex2 = 0;
+    const carouselImage2 = document.getElementById("carousel2-image");
+    const caption2 = document.getElementById("carousel2-caption");
+    const prevButton2 = document.getElementById("prev2");
+    const nextButton2 = document.getElementById("next2");
+
+    function showImage2(index) {
+      currentIndex2 = (index + images2.length) % images2.length;
+      carouselImage2.style.opacity = 0;
+      caption2.style.opacity = 0;
+
+      setTimeout(() => {
+        carouselImage2.src = images2[currentIndex2].src;
+        carouselImage2.alt = images2[currentIndex2].caption;
+        caption2.textContent = images2[currentIndex2].caption;
+        carouselImage2.style.opacity = 1;
+        caption2.style.opacity = 1;
+      }, 250);
+    }
+
+    prevButton2.addEventListener("click", () => showImage2(currentIndex2 - 1));
+    nextButton2.addEventListener("click", () => showImage2(currentIndex2 + 1));
+
+    window.addEventListener("keydown", (e) => {
+      if (document.activeElement === document.body) {
+        if (e.key === "ArrowLeft") showImage2(currentIndex2 - 1);
+        if (e.key === "ArrowRight") showImage2(currentIndex2 + 1);
+      }
+    });
+
+    window.addEventListener("load", () => showImage2(currentIndex2));
+  </script>
 </section>
-
-<script>
-const images1 = [
-  { src: "platino.offres.png", caption: "Page d'offres de Platino" },
-  { src: "platino.accueil.png", caption: "Page d'accueil du jobboard" }
-];
-
-let currentIndex1 = 0;
-const carouselImage1 = document.getElementById("carousel-image-1");
-const caption1 = document.getElementById("carousel-caption-1");
-const prevButton1 = document.getElementById("prev-1");
-const nextButton1 = document.getElementById("next-1");
-
-function showImage1(index) {
-  currentIndex1 = (index + images1.length) % images1.length;
-
-  // Fade out image et texte
-  carouselImage1.style.opacity = 0;
-  caption1.style.opacity = 0;
-
-  setTimeout(() => {
-    carouselImage1.src = images1[currentIndex1].src;
-    caption1.textContent = images1[currentIndex1].caption;
-
-    // Fade in
-    carouselImage1.style.opacity = 1;
-    caption1.style.opacity = 1;
-  }, 300);
-}
-
-prevButton1.addEventListener("click", () => showImage1(currentIndex1 - 1));
-nextButton1.addEventListener("click", () => showImage1(currentIndex1 + 1));
-
-window.addEventListener("load", () => showImage1(currentIndex1));
-</script>
-
 
     <section id="contact" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center">
       <h2 class="text-3xl md:text-5xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
