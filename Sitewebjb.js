@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const texts = [
     {
       elementId: "formation1",
-      text: "J'ai 25 ans et je recherche une alternance dès janvier 2026. Après une expérience en ressources humaines et en recrutement, je me réoriente vers l'informatique, un domaine qui me passionne pour sa créativité, ses défis et ses possibilités d'évolution. Mon objectif : construire ma carrière dans l'IT en combinant mon expérience RH à mes nouvelles compétences techniques acquises chez Epitech."
+      text: "Bonjour, je m’appelle Jean-Baptiste. J'ai 25 ans et je recherche une alternance dès janvier 2026. Après une expérience en ressources humaines et en recrutement, je me réoriente vers l'informatique, un domaine qui me passionne pour sa créativité, ses défis et ses possibilités d'évolution. Mon objectif : construire ma carrière dans l'IT en combinant mon expérience RH à mes nouvelles compétences techniques acquises chez Epitech."
     },
     {
       elementId: "apropos-text",
