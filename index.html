@@ -40,9 +40,30 @@
         height: auto !important;
       }
     }
+
+  #progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(to right, #22d3ee, #3b82f6, #a855f7);
+  width: 0%;
+  z-index: 1000;
+  transition: width 0.15s ease-out;
+}
+
   </style>
 </head>
 <body class="bg-gray-900 font-sans text-gray-100">
+  <div id="progress-bar"></div>
+  <script>
+window.addEventListener("scroll", () => {
+  const progress = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById("progress-bar").style.width = progress + "%";
+});
+</script>
+
+
 
 
   <aside class="fixed top-0 right-0 h-full w-20 md:w-28 bg-gray-900/70 backdrop-blur-md shadow-xl flex flex-col items-center py-10 space-y-8 z-50">
@@ -491,6 +512,21 @@ window.addEventListener("load", () => showImage(currentIndex));
       status.className = "text-red-400 text-center mt-2 font-semibold";
     }
   });
+</script>
+<script>
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-link");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 200;
+    if (scrollY >= sectionTop) current = section.getAttribute("id");
+  });
+  navLinks.forEach(link => {
+    link.classList.toggle("active-link", link.getAttribute("href") === "#" + current);
+  });
+});
 </script>
 
 
